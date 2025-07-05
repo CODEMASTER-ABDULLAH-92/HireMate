@@ -72,6 +72,8 @@ import SymmetricAlpha from "../src/pages/Patterns/symmetricAlphabetPyramid/page.
 import Striver from "../src/pages/striver/page.jsx";
 import Stl from "../src/pages/Learn-STL/page.jsx";
 import JobsSections from './pages/JobsSections.jsx';
+import JobDetails from './pages/JobDetails.jsx';
+import HireDev from './pages/HireDev.jsx';
 
 const App = () => {
   const location = useLocation();
@@ -91,7 +93,11 @@ const App = () => {
         <Route path="/hireMate-academy-code365" element={<HomeCode365 />} />
         <Route path="/" element={<Home />} />
         <Route path="/jobs" element={<JobsSections />} />
+        <Route path="/details/:id" element={<JobDetails />} />
 
+
+{/* Hire Dev  */}
+<Route path='/hire-dev' element={<HireDev/>}/>
 
         {/* Algorithm Routes */}
         <Route path="/binary" element={<Binary />} />

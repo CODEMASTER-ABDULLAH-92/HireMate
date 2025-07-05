@@ -79,7 +79,7 @@ const Navbar = () => {
                 onMouseEnter={() => handleMouseEnter({ ref: underlineRef2, length: text2.length })}
                 onMouseLeave={() => handleMouseLeave(underlineRef2)}
               >
-                <NavLink to="#">{text2}</NavLink>
+                <NavLink to="/hire-dev">{text2}</NavLink>
                 <div
                   ref={underlineRef2}
                   className="absolute left-0 -bottom-1 h-[3px] bg-black opacity-0"
@@ -164,7 +164,7 @@ const Navbar = () => {
               <NavLink to="/hireMate-academy-code365" onClick={() => setShowBurger(false)}>
                 {text1}
               </NavLink>
-              <NavLink to="#" onClick={() => setShowBurger(false)}>
+              <NavLink to="/hire-dev" onClick={() => setShowBurger(false)}>
                 {text2}
               </NavLink>
               <NavLink to="#" onClick={() => setShowBurger(false)}>

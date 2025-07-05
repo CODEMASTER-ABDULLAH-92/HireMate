@@ -1,14 +1,43 @@
-@import url('https://fonts.googleapis.com/css2?family=Macondo&family=Outfit:wght@100..900&family=Space+Grotesk:wght@300..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Macondo&family=Outfit:wght@100..900&family=Space+Grotesk:wght@300..700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Macondo&family=Manufacturing+Consent&family=Outfit:wght@100..900&family=Space+Grotesk:wght@300..700&display=swap");
+
 @import "tailwindcss";
 
+* {
+  font-family: "Space Grotesk", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  scroll-behavior: smooth;
+}
 
-*{
-    font-family: "Space Grotesk", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    scroll-behavior: smooth;
-  }
-  ::-webkit-scrollbar{
+.manufacturing-consent-regular {
+  font-family: "Manufacturing Consent", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+@media screen and (max-width: 399px) {
+  .hide {
     display: none;
   }
+}
+
+/* Hide on medium and below devices */
+@media screen and (max-width: 1184px) {
+  .hide_At_md_device {
+    display: none;
+  }
+}
+
+/* Show only on large devices and up */
+@media screen and (min-width: 1185px) {
+  .hide_At_md_device2nd {
+    visibility: hidden;
+  }
+}

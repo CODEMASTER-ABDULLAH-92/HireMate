@@ -3,7 +3,8 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import JobCard from "../Component/JobCard";
-
+import { jobData } from "../assets/assets";
+import JObSectionFooter from "../Component/JObSectionFooter"
 const JobsSections = () => {
   const [hideJob, setHideJob] = useState(true);
   const [hideLocation, setHideLocation] = useState(false);
@@ -77,6 +78,7 @@ const JobsSections = () => {
   }, [hideJobCategory]);
 
   return (
+    <>
     <div className="flex justify-between gap-5">
       {/* Filter Section */}
       <div className="md:min-w-[23%] h-[100%] bg-green-500 py-3 px-3 rounded-lg">
@@ -200,16 +202,18 @@ const JobsSections = () => {
 
       {/* Jobs List */}
       <div className="grid grid-cols-2 gap-5">
-        <JobCard/>
-        <JobCard/>
-        <JobCard/>
-        <JobCard/>
-        <JobCard/>
-        <JobCard/>
-        <JobCard/>
-        <JobCard/>
+
+        {
+          jobData.map((item,index)=>{
+            return <JobCard key={index} id={item._id} jobName={item.jobName} location={item.location} description={item.description} jobStatus={item.jobStatus} jobType={item.jobType} salary={item.salary}
+            experienceLevel={item.experienceLevel} responsibilities ={item.responsibilities} requirements={item.requirements} />
+          })
+        }
       </div>
     </div>
+
+      <JObSectionFooter/>
+    </>
   );
 };
 
