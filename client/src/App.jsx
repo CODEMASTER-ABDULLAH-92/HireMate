@@ -74,6 +74,10 @@ import Stl from "../src/pages/Learn-STL/page.jsx";
 import JobsSections from './pages/JobsSections.jsx';
 import JobDetails from './pages/JobDetails.jsx';
 import HireDev from './pages/HireDev.jsx';
+import PersonalDetail from './GettingUserData/Personal.jsx';
+import Address from './GettingUserData/Address.jsx';
+import Educational from './GettingUserData/Educational.jsx';
+import ProjectsPortfolio from './GettingUserData/ProjectSection.jsx';
 
 const App = () => {
   const location = useLocation();
@@ -84,7 +88,7 @@ const App = () => {
                      location.pathname === "/hireMate-academy-code365";
 
   return (
-    <div className={hideLayout ? "" : "max-w-[90%] mx-auto"}>
+    <div className={`hideLayout ? "" : "max-w-[90%] mx-auto"`}>
       {/* Conditionally render Navbar based on route */}
       {!hideLayout && <Navbar />}
       
@@ -173,11 +177,14 @@ const App = () => {
 
 
 
-
+<Route path='/personalInfo' element={<PersonalDetail/>}/>
+<Route path='/address' element={<Address/>}/>
+<Route path='/educational' element={<Educational/>}/>
+<Route path='/add-project' element={<ProjectsPortfolio/>}/>
 
 
         {/* 404 Route - Should be last */}
-        <Route path="*" element={<NotFound />} />
+        {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>
     </div>
   );

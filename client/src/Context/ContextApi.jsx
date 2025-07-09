@@ -4,8 +4,9 @@ export const AppContext = createContext();
 
 export const AppContextProvider = (props) =>{
 
+    const url ="";
 
-    const value = {jobData}
+    const value = {jobData,url}
     return (
         <AppContext.Provider value={value}>
             {props.children}

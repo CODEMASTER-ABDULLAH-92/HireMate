@@ -6,7 +6,8 @@ const JobCard = ({ jobName, location, description, jobStatus, jobType, salary,
 id})=> {
 
   const [isFilled, setIsFilled] = useState(false);
-
+  const token = true;
+  const [applyBtnText] = "Apply Now";
   return (
     <div className="py-5 px-6 bg-amber-300 rounded-xl h-[300px]">
       {/* upper Section  */}
@@ -48,7 +49,7 @@ id})=> {
 
       <div className="flex justify-between items-center pt-5">
         <Link  to={`/details/${id}`} className="px-4 w-[40%] text-center text-lg cursor-pointer rounded-md py-2 bg-green-500 ">View Details</Link>
-        <button className="px-4 w-[40%] text-lg rounded-md font-bold py-2 bg-green-500 ">Apply Now</button>
+        <Link to={token ? "": "/login"}  className="px-4 w-[40%] text-center text-lg rounded-md font-bold py-2 bg-green-500">Apply Now </Link>
       </div>
     </div>
   );

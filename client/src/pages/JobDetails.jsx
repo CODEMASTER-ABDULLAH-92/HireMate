@@ -4,12 +4,18 @@ import { useParams } from "react-router-dom";
 import SimilarJobs from "../Component/SimilarJobs";
 import JobSectionFooter from "../Component/JObSectionFooter";
 
-
 const JobDetails = () => {
   const { jobData } = useContext(AppContext);
   const [data, setData] = useState(null);
   const [similar, setSimilar] = useState([]);
   const { id } = useParams();
+
+
+
+
+
+
+
 
   useEffect(() => {
     const currentJob = jobData.find((item) => item._id === id);
@@ -29,6 +35,11 @@ const JobDetails = () => {
 
   if (!data) return <div className="text-center text-lg mt-10">Loading...</div>;
 
+  const shareBtnLogic = () => {
+    const url = window.location.href;
+    navigator.clipboard.writeText(url);
+  };
+
   return (
     <div className="px-4 md:px-10 py-6">
       <div className="flex justify-between items-center flex-wrap gap-4">
@@ -44,7 +55,10 @@ const JobDetails = () => {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path d="M6.784 15.68 11.46 4.13h1.75L8.534 15.68z" fill="#CBD5E1" />
+              <path
+                d="M6.784 15.68 11.46 4.13h1.75L8.534 15.68z"
+                fill="#CBD5E1"
+              />
             </svg>
             <a href="/jobs">Careers</a>
             <svg
@@ -54,7 +68,10 @@ const JobDetails = () => {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path d="M6.784 15.68 11.46 4.13h1.75L8.534 15.68z" fill="#CBD5E1" />
+              <path
+                d="M6.784 15.68 11.46 4.13h1.75L8.534 15.68z"
+                fill="#CBD5E1"
+              />
             </svg>
             <a href={`/details/${data._id}`} className="text-indigo-500">
               {data.jobName}
@@ -65,8 +82,15 @@ const JobDetails = () => {
         {/* Right Side Buttons */}
         <div className="sm:block hidden">
           <div className="flex gap-4 justify-between">
-            <button className="px-7 py-2 rounded-md bg-green-500 text-white">Save</button>
-            <button className="px-7 py-2 rounded-md bg-green-500 text-white">Share</button>
+            <button className="px-7 py-2 rounded-md bg-green-500 text-white">
+              Save
+            </button>
+            <button
+              className="px-7 py-2 rounded-md bg-green-500 text-white"
+              onClick={shareBtnLogic}
+            >
+              Share
+            </button>
           </div>
           <button className="px-10 mt-4 py-2 hidden md:block text-lg rounded-md bg-green-500 text-white">
             Apply For This Position
@@ -144,35 +168,30 @@ const JobDetails = () => {
             <p>No similar jobs found.</p>
           )}
         </div>
-        
-
-
       </div>
 
-
-
       <div className="w-full mt-2 flex overflow-scroll hide_At_md_device2nd gap-5 items-center justify-evenly bg-green-100 p-4 rounded-md">
-          {similar.length > 0 ? (
-            similar.map((job, index) => (
-              <SimilarJobs
-                key={index}
-                id={job._id}
-                jobName={job.jobName}
-                location={job.location}
-                description={job.description}
-                jobStatus={job.jobStatus}
-                jobType={job.jobType}
-                salary={job.salary}
-                experienceLevel={job.experienceLevel}
-                responsibilities={job.responsibilities}
-                requirements={job.requirements}
-              />
-            ))
-          ) : (
-            <p>No similar jobs found.</p>
-          )}
-        </div>
-<JobSectionFooter/>
+        {similar.length > 0 ? (
+          similar.map((job, index) => (
+            <SimilarJobs
+              key={index}
+              id={job._id}
+              jobName={job.jobName}
+              location={job.location}
+              description={job.description}
+              jobStatus={job.jobStatus}
+              jobType={job.jobType}
+              salary={job.salary}
+              experienceLevel={job.experienceLevel}
+              responsibilities={job.responsibilities}
+              requirements={job.requirements}
+            />
+          ))
+        ) : (
+          <p>No similar jobs found.</p>
+        )}
+      </div>
+      <JobSectionFooter />
     </div>
   );
 };
