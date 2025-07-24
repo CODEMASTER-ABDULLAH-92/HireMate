@@ -1,27 +1,28 @@
-import React from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
 
-// Layout Components
-import Navbar from './Component/Navbar';
+import React from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
+
+
+import Navbar from "./Component/Navbar";
 
 // Auth Pages
-import Login from './pages/Login';
-import Password from './pages/Password';
-import SignUp from './pages/SignUp';
-import Otp from './pages/Otp';
-import HomeCode365 from './pages/HomeCode365.jsx';
+import Login from "./pages/Login";
+import Password from "./pages/Password";
+import SignUp from "./pages/SignUp";
+import Otp from "./pages/Otp";
+import HomeCode365 from "./pages/HomeCode365.jsx";
 
 // Home Page
-import Home from './pages/Home.jsx';
+import Home from "./pages/Home.jsx";
 import NotFound from "../src/pages/404-not-found/page.jsx";
 
 // Algorithm Pages
-import Binary from "./pages/Algorithm/binarysearch/page.jsx"; 
-import Bubble from "./pages/Algorithm/bubblesort/page.jsx"; 
-import Dutch from "./pages/Algorithm/dutch-national-flag-algo/page.jsx"; 
-import Insertion from "./pages/Algorithm/insertionsort/page.jsx"; 
-import Linear from "./pages/Algorithm/linearSearch/page.jsx"; 
-import Selection from "./pages/Algorithm/selectionSort/page.jsx"; 
+import Binary from "./pages/Algorithm/binarysearch/page.jsx";
+import Bubble from "./pages/Algorithm/bubblesort/page.jsx";
+import Dutch from "./pages/Algorithm/dutch-national-flag-algo/page.jsx";
+import Insertion from "./pages/Algorithm/insertionsort/page.jsx";
+import Linear from "./pages/Algorithm/linearSearch/page.jsx";
+import Selection from "./pages/Algorithm/selectionSort/page.jsx";
 import AllData from "./pages/all/page.jsx";
 
 // Array DSA Pages
@@ -43,9 +44,9 @@ import DataTypes from "../src/pages/data-types/page.jsx";
 import JsStrings from "../src/pages/Js-strings-methods/page.jsx";
 import MasterJs from "../src/pages/masterJavaScript/page.jsx";
 import JsLoops from "../src/pages/js-loops/page.jsx";
-import MathPage from './pages/MathJS.jsx';
+import MathPage from "./pages/MathJS.jsx";
 import OtpMethod from "./pages/Otp&Password.jsx";
-import DateMethodsPage from '../src/pages/Date.jsx';
+import DateMethodsPage from "../src/pages/Date.jsx";
 
 // Pattern Pages
 import AlphaPyramidPattern from "../src/pages/Patterns/AlphabetPyramidPattern/page.jsx";
@@ -71,27 +72,73 @@ import SymmetricAlpha from "../src/pages/Patterns/symmetricAlphabetPyramid/page.
 // Other Pages
 import Striver from "../src/pages/striver/page.jsx";
 import Stl from "../src/pages/Learn-STL/page.jsx";
-import JobsSections from './pages/JobsSections.jsx';
-import JobDetails from './pages/JobDetails.jsx';
-import HireDev from './pages/HireDev.jsx';
-import PersonalDetail from './GettingUserData/Personal.jsx';
-import Address from './GettingUserData/Address.jsx';
-import Educational from './GettingUserData/Educational.jsx';
-import ProjectsPortfolio from './GettingUserData/ProjectSection.jsx';
+import JobsSections from "./pages/JobsSections.jsx";
+import JobDetails from "./pages/JobDetails.jsx";
+import HireDev from "./pages/HireDev.jsx";
+import PersonalDetail from "./GettingUserData/Personal.jsx";
+import Address from "./GettingUserData/Address.jsx";
+import Educational from "./GettingUserData/Educational.jsx";
+import ProjectsPortfolio from "./GettingUserData/ProjectSection.jsx";
+
 
 const App = () => {
-  const location = useLocation();
-  const hideLayout = location.pathname === "/login" || 
-                     location.pathname === "/password" || 
-                     location.pathname === "/signUp" || 
-                     location.pathname === "/otp" || 
-                     location.pathname === "/hireMate-academy-code365";
+  const { pathname } = useLocation();
+
+  const hideLayoutRoutes = [
+    "/login",
+    "/password",
+    "/signUp",
+    "/otp",
+    "/hireMate-academy-code365",
+
+    // JavaScript
+    "/array-methods",
+    "/data-types",
+    "/Js-strings-methods",
+    "/Js-Loops",
+    "/masterJavaScript",
+    "/mathJs",
+    "/otpPassword",
+    "/dateMethod",
+
+    // Algorithms
+    "/binary",
+    "/bubble",
+    "/dutch",
+    "/insertion",
+    "/linear",
+    "/all",
+    "/selection",
+
+    // Patterns
+    "/AlphabetPyramidPattern",
+    "/AlphabetStaircasePattern",
+    "/BinaryNumberTrianglePattern",
+    "/ButterflyPattern",
+    "/diamondPattern",
+    "/floydTriangle",
+    "/HollowSquarePattern",
+    "/Hourglass-Pattern",
+    "/Inverted-Pyramid-Pattern2",
+    "/InvertedRight-AngledTrianglePattern",
+    "/mirroredNumberPyramidPattern",
+    "/number-Pyramid-Pattern",
+    "/pyramidPattern",
+    "/repeated-Number-Triangle-Pattern",
+    "/reverseAlphabetTrianglePattern",
+    "/right-Angled-Triangle-Pattern",
+    "/sandglassPattern",
+    "/squarePattern",
+    "/symmetricAlphabetPyramid",
+    "/primeNumber"
+  ];
+
+  const hideLayout = hideLayoutRoutes.includes(pathname);
 
   return (
-    <div className={`hideLayout ? "" : "max-w-[90%] mx-auto"`}>
-      {/* Conditionally render Navbar based on route */}
+    <div className={`${hideLayout ? "custom-font" : "max-w-[90%] fontFamily mx-auto"} `}>
       {!hideLayout && <Navbar />}
-      
+
       <Routes>
         {/* Home Routes */}
         <Route path="/hireMate-academy-code365" element={<HomeCode365 />} />
@@ -99,9 +146,8 @@ const App = () => {
         <Route path="/jobs" element={<JobsSections />} />
         <Route path="/details/:id" element={<JobDetails />} />
 
-
-{/* Hire Dev  */}
-<Route path='/hire-dev' element={<HireDev/>}/>
+        {/* Hire Dev  */}
+        <Route path="/hire-dev" element={<HireDev />} />
 
         {/* Algorithm Routes */}
         <Route path="/binary" element={<Binary />} />
@@ -113,11 +159,20 @@ const App = () => {
         <Route path="/all" element={<AllData />} />
 
         {/* Array DSA Routes */}
-        <Route path="/fibonacci-series-using-array" element={<FiboncacciSeries />} />
+        <Route
+          path="/fibonacci-series-using-array"
+          element={<FiboncacciSeries />}
+        />
         <Route path="/find-second-largest" element={<Find2ndLargest />} />
         <Route path="/Min-Max-In-array" element={<MinMaxInArray />} />
-        <Route path="/missing-number-in-an-array" element={<MissingNumberInArray />} />
-        <Route path="/reverse-alternative-array" element={<ReverseAlternative />} />
+        <Route
+          path="/missing-number-in-an-array"
+          element={<MissingNumberInArray />}
+        />
+        <Route
+          path="/reverse-alternative-array"
+          element={<ReverseAlternative />}
+        />
         <Route path="/reverseAnArray" element={<ReverseAnArray />} />
         <Route path="/rotate-an-array-by-1" element={<RotataAnArrayBy1 />} />
         <Route path="/seprate-even-odd" element={<SepEvenOdd />} />
@@ -131,27 +186,57 @@ const App = () => {
         <Route path="/Js-strings-methods" element={<JsStrings />} />
         <Route path="/Js-Loops" element={<JsLoops />} />
         <Route path="/masterJavaScript" element={<MasterJs />} />
-        <Route path='/mathJs' element={<MathPage/>}/>
-        <Route path='/otpPassword' element={<OtpMethod/>}/>
-        <Route path='/dateMethod' element={<DateMethodsPage/>}/>
+        <Route path="/mathJs" element={<MathPage />} />
+        <Route path="/otpPassword" element={<OtpMethod />} />
+        <Route path="/dateMethod" element={<DateMethodsPage />} />
 
         {/* Pattern Routes */}
-        <Route path="/AlphabetPyramidPattern" element={<AlphaPyramidPattern />} />
-        <Route path="/AlphabetStaircasePattern" element={<AlphaStairPattern />} />
-        <Route path="/BinaryNumberTrianglePattern" element={<BinaryNumberTrianglePattern />} />
+        <Route
+          path="/AlphabetPyramidPattern"
+          element={<AlphaPyramidPattern />}
+        />
+        <Route
+          path="/AlphabetStaircasePattern"
+          element={<AlphaStairPattern />}
+        />
+        <Route
+          path="/BinaryNumberTrianglePattern"
+          element={<BinaryNumberTrianglePattern />}
+        />
         <Route path="/ButterflyPattern" element={<ButterflyPattern />} />
         <Route path="/diamondPattern" element={<DiamondPattern />} />
         <Route path="/floydTriangle" element={<FloydPattern />} />
         <Route path="/HollowSquarePattern" element={<HollowSquarePattern />} />
         <Route path="/Hourglass-Pattern" element={<HourGlassPattern />} />
-        <Route path="/Inverted-Pyramid-Pattern2" element={<InvertedPyramidPattern />} />
-        <Route path="/InvertedRight-AngledTrianglePattern" element={<InvertedRightAnglePattern />} />
-        <Route path="/mirroredNumberPyramidPattern" element={<MirrorNumberPattern />} />
-        <Route path="/number-Pyramid-Pattern" element={<NumberPyramidPattern />} />
+        <Route
+          path="/Inverted-Pyramid-Pattern2"
+          element={<InvertedPyramidPattern />}
+        />
+        <Route
+          path="/InvertedRight-AngledTrianglePattern"
+          element={<InvertedRightAnglePattern />}
+        />
+        <Route
+          path="/mirroredNumberPyramidPattern"
+          element={<MirrorNumberPattern />}
+        />
+        <Route
+          path="/number-Pyramid-Pattern"
+          element={<NumberPyramidPattern />}
+        />
         <Route path="/pyramidPattern" element={<PyramidPattern />} />
-        <Route path="/repeated-Number-Triangle-Pattern" element={<RepeatNumberPattern />} />
-        <Route path="/reverseAlphabetTrianglePattern" element={<ReverseAlphaPattern />} />
-        <Route path="/right-Angled-Triangle-Pattern" element={<RightAnglePattern />} />
+        <Route
+          path="/repeated-Number-Triangle-Pattern"
+          element={<RepeatNumberPattern />}
+        />
+        <Route
+          path="/reverseAlphabetTrianglePattern"
+          element={<ReverseAlphaPattern />}
+        />
+        <Route
+          path="/right-Angled-Triangle-Pattern"
+          element={<RightAnglePattern />}
+        />
         <Route path="/sandglassPattern" element={<SandGlassPattern />} />
         <Route path="/squarePattern" element={<SquarePattern />} />
         <Route path="/symmetricAlphabetPyramid" element={<SymmetricAlpha />} />
@@ -172,16 +257,10 @@ const App = () => {
         <Route path="/recuiter-signUp" element={<SignUp />} />
         <Route path="/recuiter-otp" element={<Otp />} />
 
-
-
-
-
-
-<Route path='/personalInfo' element={<PersonalDetail/>}/>
-<Route path='/address' element={<Address/>}/>
-<Route path='/educational' element={<Educational/>}/>
-<Route path='/add-project' element={<ProjectsPortfolio/>}/>
-
+        <Route path="/personalInfo" element={<PersonalDetail />} />
+        <Route path="/address" element={<Address />} />
+        <Route path="/educational" element={<Educational />} />
+        <Route path="/add-project" element={<ProjectsPortfolio />} />
 
         {/* 404 Route - Should be last */}
         {/* <Route path="*" element={<NotFound />} /> */}

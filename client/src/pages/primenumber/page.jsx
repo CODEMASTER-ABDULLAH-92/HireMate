@@ -1,61 +1,15 @@
-import Code from '../../component/Code'
-import React from 'react'
+import Code from "../../component/Code";
+import React from "react";
 
 const page = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black p-6 py-12">
+    <div className="min-h-screen montserrat-alternates-thin bg-gradient-to-br from-gray-900 to-black p-6 py-12">
       <div className="max-w-5xl mx-auto">
-        {/* Header */}
-        <div className="mb-12 text-center">
-          <h1 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-cyan-500 mb-4">
-            Prime Number Checker
-          </h1>
-          <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-pink-600 mx-auto"></div>
-        </div>
-
         {/* Main Content */}
         <div className="space-y-8">
-          {/* Algorithm Card */}
-          <div className="bg-gray-800 bg-opacity-50 backdrop-blur-sm rounded-xl border border-gray-700 p-6 shadow-lg">
-            <h2 className="text-2xl font-semibold text-green-400 mb-4 flex items-center">
-              <span className="w-3 h-3 bg-green-500 rounded-full mr-3 animate-pulse"></span>
-              Algorithm Overview
-            </h2>
-            <ul className="space-y-3 text-gray-300">
-              <li className="flex items-start">
-                <span className="text-red-400 mr-2">⟫</span>
-                <span>Checks if a number is prime using mathematical optimizations</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-red-400 mr-2">⟫</span>
-                <span>Prime numbers are natural numbers `` 1 with no divisors other than 1 and itself</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-red-400 mr-2">⟫</span>
-                <span>Efficiently checks divisibility only up to √n</span>
-              </li>
-            </ul>
-          </div>
-
           {/* Code Block */}
-
-
-
-
-          
-          <div className="relative group">
-            <div className="absolute -inset-1 bg-gradient-to-r from-green-600 to-cyan-500 rounded-xl opacity-75 group-hover:opacity-100 blur transition duration-200"></div>
-            <div className="relative bg-gray-900 rounded-xl overflow-hidden border border-gray-700">
-              <div className="flex items-center px-4 py-3 bg-gray-800 border-b border-gray-700">
-                <div className="flex space-x-2 mr-4">
-                  <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                  <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                  <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                </div>
-                <div className="text-sm text-gray-400">prime_checker.cpp</div>
-              </div>
-              <Code 
-                text={`#include<iostream>
+          <Code
+            text={`#include<iostream>
 #include<cmath>  // Include cmath for sqrt function
 using namespace std;
 
@@ -79,16 +33,33 @@ int main(){
         cout << number << " is not a prime number." << endl;
     }
     return 0;
-}`} 
-                language="cpp"
-                className="!bg-transparent"
-              />
-            </div>
+}`}
+            language="cpp"
+            heading="Prime Number Checker"
+            problemHeading="prime_number_checker.cpp"
+          />
+
+          {/* Algorithm Card */}
+          <div className="bg-gray-800 bg-opacity-50 backdrop-blur-sm rounded-xl border border-gray-700 p-6 shadow-lg">
+            <h2 className="text-2xl font-semibold text-green-400 mb-4 flex items-center">
+              <span className="w-3 h-3 bg-green-500 rounded-full mr-3 animate-pulse"></span>
+              Algorithm Overview
+            </h2>
+            <ul className="space-y-3 text-gray-300">
+              <li className="flex items-start">
+                <span className="text-red-400 mr-2">⟫</span>
+                <span>Checks if a number is prime using mathematical optimizations</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-red-400 mr-2">⟫</span>
+                <span>Prime numbers are natural numbers greater than 1 with no divisors other than 1 and itself</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-red-400 mr-2">⟫</span>
+                <span>Efficiently checks divisibility only up to √n</span>
+              </li>
+            </ul>
           </div>
-
-
-
-
 
           {/* Stats Grid */}
           <div className="grid md:grid-cols-2 gap-6">
@@ -169,7 +140,7 @@ int main(){
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;

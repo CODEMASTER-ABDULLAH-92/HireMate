@@ -56,12 +56,12 @@ const Navbar = () => {
               className="h-6 w-6 hover:rotate-180 duration-1000"
               alt="Logo"
             />
-            <p className="text-3xl font-semibold">HireMate.</p>
+            <p className="text-3xl">HireMate.</p>
           </Link>
 
           {/* Navigation Links */}
           <nav>
-            <ul className="flex gap-3 text-xl font-medium" ref={containerRef}>
+            <ul className="flex gap-3 text-xl " ref={containerRef}>
               <li
                 className="animate_nav relative cursor-pointer"
                 onMouseEnter={() => handleMouseEnter({ ref: underlineRef1, length: text1.length })}
@@ -160,7 +160,7 @@ const Navbar = () => {
           }`}
         >
           <nav className="bg-white py-10 rounded-lg">
-            <ul className="flex flex-col items-center gap-6 text-xl font-medium">
+            <ul className="flex flex-col items-center gap-6 text-xl ">
               <NavLink to="/hireMate-academy-code365" onClick={() => setShowBurger(false)}>
                 {text1}
               </NavLink>

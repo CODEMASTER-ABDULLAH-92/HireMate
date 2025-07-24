@@ -65,29 +65,11 @@ const JobsSections = () => {
       );
     }
   }, [hideCategory]);
-
-
-
-
-  // const [currentPage, setCurrentPage] = useState(1);
-  // const questionsPerPage = 6;
-
-  // // Calculate current questions to display
-  // const indexOfLastQuestion = currentPage * questionsPerPage;
-  // const indexOfFirstQuestion = indexOfLastQuestion - questionsPerPage;
-  // const currentQuestions = filteredQuestions.slice(
-  //   indexOfFirstQuestion,
-  //   indexOfLastQuestion
-  // );
-  // const totalPages = Math.ceil(filteredQuestions.length / questionsPerPage);
-
-
-
   return (
     <>
       <div className="flex justify-between gap-5">
         {/* Filters */}
-        <div className="md:min-w-[23%] bg-green-500 py-3 px-3 rounded-lg h-full">
+        <div className="md:min-w-[23%] sm:block hidden bg-green-500 py-3 px-3 rounded-lg h-full">
           {/* Job Type */}
           <div ref={jobTypeRef}>
             <div className="flex justify-between items-center cursor-pointer" onClick={() => setHideJobType(!hideJobType)}>
@@ -142,7 +124,7 @@ const JobsSections = () => {
         </div>
 
         {/* Job Cards */}
-        <div className="grid grid-cols-2 gap-5 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-full">
           {jobData.map((item, index) => (
             <JobCard
               key={index}
@@ -167,3 +149,20 @@ const JobsSections = () => {
 };
 
 export default JobsSections;
+
+
+
+
+
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const questionsPerPage = 6;
+
+  // // Calculate current questions to display
+  // const indexOfLastQuestion = currentPage * questionsPerPage;
+  // const indexOfFirstQuestion = indexOfLastQuestion - questionsPerPage;
+  // const currentQuestions = filteredQuestions.slice(
+  //   indexOfFirstQuestion,
+  //   indexOfLastQuestion
+  // );
+  // const totalPages = Math.ceil(filteredQuestions.length / questionsPerPage);
+

@@ -1,55 +1,74 @@
-import React from "react";
+import React, { useState } from "react";
 import { Dot } from "lucide-react";
-import {Link} from "react-router-dom"
-import { useState } from "react";
-const JobCard = ({ jobName, location, description, jobStatus, jobType, salary,
-id})=> {
+import { Link } from "react-router-dom";
 
+const JobCard = ({ jobName, location, description, jobStatus, jobType, salary, id }) => {
   const [isFilled, setIsFilled] = useState(false);
   const token = true;
-  const [applyBtnText] = "Apply Now";
+
   return (
-    <div className="py-5 px-6 bg-amber-300 rounded-xl h-[300px]">
-      {/* upper Section  */}
-      <div className="flex justify-between items-center">
-        <div>
-          <h1 className="text-3xl pb-2">{jobName} </h1>
-          <div className="flex">
-            <li className="list-none">{jobStatus}</li>
-            <li className="list-none flex justify-center items-center gap-0">
-              <Dot />
-{location}
-            </li>
-            <li className="list-none flex justify-center items-center gap-0">
-              <Dot />
-{jobType}
-            </li>
+    <div className="bg-amber-300 rounded-xl p-6 max-h-[350px] flex flex-col justify-between">
+      {/* Top Section */}
+      <div>
+        <div className="flex justify-between items-start mb-4">
+          <div>
+            <h1 className="text-2xl  mb-2">{jobName}</h1>
+            <ul className="flex flex-wrap items-center gap-2 text-sm text-gray-700">
+              <li className="list-none">{jobStatus}</li>
+              <li className="list-none flex items-center">
+                <Dot className="w-6 h-6" />
+                {location}
+              </li>
+              <li className="list-none flex items-center">
+                <Dot className="w-4 h-4" />
+                {jobType}
+              </li>
+            </ul>
           </div>
+
+          {/* Bookmark Icon */}
+          <svg
+            onClick={() => setIsFilled(!isFilled)}
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-7 w-7 cursor-pointer transition-all duration-200"
+            viewBox="0 0 24 24"
+            fill={isFilled ? "#4ade80" : "none"}
+            stroke="#4ade80"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+          </svg>
         </div>
-        <svg
-          onClick={() => setIsFilled(!isFilled)}
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-7 w-7 cursor-pointer transition-all duration-200"
-          viewBox="0 0 24 24"
-          fill={isFilled ? "#4ade80" : "none"} // green-400 fill on click
-          stroke="#4ade80" // outline remains
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
+
+        {/* Description */}
+        <p className="text-gray-800 text-sm mb-4 line-clamp-3">{description}</p>
+      </div>
+
+      {/* Salary and Time */}
+      <div className="flex justify-between items-center text-gray-800 mb-4">
+        <span className="text-xl font-bold">
+          ${salary}
+          <span className="text-base font-[400] "> /month</span>
+        </span>
+        <span className="text-sm">5h ago</span>
+      </div>
+
+      {/* Action Buttons */}
+      <div className="flex justify-between gap-3">
+        <Link
+          to={`/details/${id}`}
+          className="w-1/2 text-center text-white bg-green-600 hover:bg-green-700 rounded-md py-2 text-sm  transition"
         >
-          <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
-        </svg>
-      </div>
-      <p>{description} </p>
-
-      <div className="pt-5 flex justify-between items-center">
-        <span className="text-3xl font-bold">${salary}<span className="text-xl">/month</span></span>
-        <span>5h ago</span>
-      </div>
-
-      <div className="flex justify-between items-center pt-5">
-        <Link  to={`/details/${id}`} className="px-4 w-[40%] text-center text-lg cursor-pointer rounded-md py-2 bg-green-500 ">View Details</Link>
-        <Link to={token ? "": "/login"}  className="px-4 w-[40%] text-center text-lg rounded-md font-bold py-2 bg-green-500">Apply Now </Link>
+          View Details
+        </Link>
+        <Link
+          to={token ? "#" : "/login"}
+          className="w-1/2 text-center text-white bg-green-600 hover:bg-green-700 rounded-md py-2 text-sm  transition"
+        >
+          Apply Now
+        </Link>
       </div>
     </div>
   );

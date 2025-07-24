@@ -5,7 +5,7 @@ import { data } from "../assets/assets";
 const FooterHireMate = () => {
     const date = new Date();
   return (
-    <div className="bg-[#191A23] text-gray-200 px-10 py-6 mt-20 rounded-t-4xl">
+    <div className="bg-[#191A23]  text-gray-200 px-10 py-6 mt-20 rounded-t-4xl">
       {/* Logo and Social Icons */}
       <div className="flex flex-col md:flex-row justify-between items-center py-5 gap-4">
         <Link to="/" className="flex items-center gap-2">
