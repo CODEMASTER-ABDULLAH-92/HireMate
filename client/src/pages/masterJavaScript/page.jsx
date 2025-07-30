@@ -1,5 +1,5 @@
 import React from "react";
-import CardDsa from "../../component/CardDsa";
+import CardDsa from "../../Component/CardDsa";
 
 const HeadingCard = ({ title, subheading, description }) => {
   return (
