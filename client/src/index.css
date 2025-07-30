@@ -4,6 +4,7 @@
 @import "tailwindcss";
 
 * {
+  /* background: oklch(82.8% 0.189 84.429); */
   scroll-behavior: smooth;
 }
 .fontFamily{
@@ -50,3 +51,20 @@
     visibility: hidden;
   }
 }
+
+
+
+
+/* Tailwind config / global stylesheet */
+.testimonial-clip {
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% 100%,
+    60px 100%,
+    50px 110%, /* the tip of the V pointing outward */
+    40px 100%,
+    0% 100%
+  );
+}
+

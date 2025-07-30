@@ -1,4 +1,5 @@
 import Icon from "../assets/Icon.png";
+import testmonialIcon from "../assets/LogoWhite.svg";
 import signUp from "../assets/signUp.png";
 import password from "../assets/password.png";
 import login from "../assets/login.png";
@@ -25,10 +26,13 @@ import linkdin from "../assets/linkdin.png";
 import whiteLogo from "../assets/whiteLogo.png";
 import fa from "../assets/fa.png";
 import save from "../assets/save.png";
+import green from "../assets/green.svg";
 import abdullah from "../assets/abdullah.jpeg";
 
 export const data = {
   tw,
+  green,
+  testmonialIcon,
   abdullah,
   linkdin,
   whiteLogo,
@@ -2001,6 +2005,52 @@ export const jobData = [
     ],
   },
   {
+    _id:"jjffge",
+    jobName: "Frontend Developer",
+    location: "Lahore, Pakistan",
+    description:
+      "We are looking for a skilled frontend developer with experience in React.js and Tailwind CSS.",
+    jobStatus: "Remote",
+    jobType: "Full-time",
+    salary: "120,000",
+    experienceLevel: "Mid-Level",
+    responsibilities: [
+      "Develop user-facing features using React.js",
+      "Write clean and maintainable code",
+      "Collaborate with designers and backend developers",
+      "Optimize components for maximum performance",
+    ],
+    requirements: [
+      "2+ years of frontend development experience",
+      "Strong proficiency in JavaScript, React.js",
+      "Familiarity with RESTful APIs",
+      "Experience with version control tools like Git",
+    ],
+  },
+  {
+    _id:"jjfge",
+    jobName: "Frontend Developer",
+    location: "Lahore, Pakistan",
+    description:
+      "We are looking for a skilled frontend developer with experience in React.js and Tailwind CSS.",
+    jobStatus: "Remote",
+    jobType: "Full-time",
+    salary: "120,000",
+    experienceLevel: "Mid-Level",
+    responsibilities: [
+      "Develop user-facing features using React.js",
+      "Write clean and maintainable code",
+      "Collaborate with designers and backend developers",
+      "Optimize components for maximum performance",
+    ],
+    requirements: [
+      "2+ years of frontend development experience",
+      "Strong proficiency in JavaScript, React.js",
+      "Familiarity with RESTful APIs",
+      "Experience with version control tools like Git",
+    ],
+  },
+  {
     _id:"jjfgeie",
     jobName: "Frontend Developer",
     location: "Lahore, Pakistan",
@@ -2067,10 +2117,6 @@ export const jobData = [
       "Understanding of deployment and CI/CD",
     ],
   },
-
-
-
-
   {  _id:"jjre",
     jobName: "Backend Developer",
     location: "Karachi, Pakistan",

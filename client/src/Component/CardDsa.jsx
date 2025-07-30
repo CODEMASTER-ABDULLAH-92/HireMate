@@ -29,11 +29,11 @@ const CardDsa = ({
             </span>
 
             {/* Badge with glass morphism effect */}
-            <div className="absolute bottom-1 left-6">
-              <span className="bg-gray-900/80 text-white px-4 py-1.5 rounded-full text-xs font-medium border border-gray-700/50 backdrop-blur-md shadow-sm hover:bg-gray-800/90 transition-all duration-300 flex items-center gap-1">
-                <span className="w-3 h-3 bg-green-500 rounded-full duration-500 animate-pulse"></span>
-                {btnText}
-              </span>
+            <div className="absolute bottom-1 left-6 flex gap-2">
+              <Link to="/javaScript_exerise" className="bg-gray-900/80 cursor-pointer text-white px-4 py-1.5 rounded-full text-xs font-medium border border-gray-700/50 backdrop-blur-md shadow-sm hover:bg-gray-800/90 transition-all duration-300 flex items-center gap-1">
+                <span  className="w-3 cursor-pointer h-3 bg-green-500 rounded-full duration-500 animate-pulse"></span>
+Exercise
+              </Link>
             </div>
           </div>
         </div>

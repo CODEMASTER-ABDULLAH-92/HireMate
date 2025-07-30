@@ -79,6 +79,7 @@ import PersonalDetail from "./GettingUserData/Personal.jsx";
 import Address from "./GettingUserData/Address.jsx";
 import Educational from "./GettingUserData/Educational.jsx";
 import ProjectsPortfolio from "./GettingUserData/ProjectSection.jsx";
+import JsExercise from "./pages/JsExercise.jsx";
 
 
 const App = () => {
@@ -130,7 +131,8 @@ const App = () => {
     "/sandglassPattern",
     "/squarePattern",
     "/symmetricAlphabetPyramid",
-    "/primeNumber"
+    "/primeNumber",
+    "/javaScript_exerise"
   ];
 
   const hideLayout = hideLayoutRoutes.includes(pathname);
@@ -189,6 +191,7 @@ const App = () => {
         <Route path="/mathJs" element={<MathPage />} />
         <Route path="/otpPassword" element={<OtpMethod />} />
         <Route path="/dateMethod" element={<DateMethodsPage />} />
+        <Route path="/javaScript_exerise" element={<JsExercise />} />
 
         {/* Pattern Routes */}
         <Route

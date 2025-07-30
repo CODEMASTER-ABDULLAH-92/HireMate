@@ -19,16 +19,17 @@ const HomeCard = ({
       {/* Left Section - Content */}
       <div className="flex flex-col justify-between h-full w-full md:w-auto order-2 md:order-1 mt-4 md:mt-0">
         <div className="mb-4 md:mb-0">
-          <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-medium">
+          <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl">
             <span 
               style={{ backgroundColor: headingBg }} 
               className="p-1 inline-block"
             >
               {mainHeading1}
             </span>{' '}
+            <br />
             <span 
               style={{ backgroundColor: headingBg }} 
-              className="p-1 inline-block"
+              className="p-1 mb-2 inline-block"
             >
               {mainHeading2}
             </span>

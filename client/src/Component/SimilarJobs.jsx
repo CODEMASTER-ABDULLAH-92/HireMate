@@ -18,7 +18,7 @@ const SimilarJobs = ({
       {/* Top */}
       <div className="flex justify-between items-start">
         <div>
-          <h1 className="text-xl font-bold leading-tight">{jobName}</h1>
+          <h1 className="text-xl  leading-tight">{jobName}</h1>
           <div className="flex flex-wrap items-center text-sm text-gray-800 gap-x-2 gap-y-1 pt-1">
             <li className="list-none">{jobStatus}</li>
             <li className="list-none flex items-center">
@@ -51,7 +51,7 @@ const SimilarJobs = ({
 
       {/* Salary and Time */}
       <div className="pt-3 flex justify-between items-center text-sm">
-        <span className="text-xl font-bold">
+        <span className="text-xl ">
           ${salary}
           <span className="text-sm font-normal">/month</span>
         </span>
@@ -66,7 +66,7 @@ const SimilarJobs = ({
         >
           View
         </Link>
-        <button className="px-2 w-1/2 text-sm font-bold py-2 rounded-md bg-green-500 text-white hover:bg-green-600 transition">
+        <button className="px-2 w-1/2 text-sm  py-2 rounded-md bg-green-500 text-white hover:bg-green-600 transition">
           Apply
         </button>
       </div>

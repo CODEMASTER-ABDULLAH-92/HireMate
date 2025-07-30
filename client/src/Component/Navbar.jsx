@@ -11,7 +11,6 @@ const Navbar = () => {
   const underlineRef1 = useRef();
   const underlineRef2 = useRef();
   const underlineRef3 = useRef();
-
   const text1 = "Jobs";
   const text2 = "Hire Dev";
   const text3 = "Academy";
@@ -91,6 +90,9 @@ const Navbar = () => {
                 onMouseEnter={() => handleMouseEnter({ ref: underlineRef3, length: text3.length })}
                 onMouseLeave={() => handleMouseLeave(underlineRef3)}
               >
+                <div className="absolute -top-6 animate-bounce bg-[#B9FF66] px-2 py-1 rounded-md text-sm right-0">
+                  New!
+                </div>
                 <NavLink to="/hireMate-academy-code365">{text3}</NavLink>
                 <div
                   ref={underlineRef3}
@@ -129,7 +131,7 @@ const Navbar = () => {
         <div className="sm:hidden flex justify-between items-center py-5">
           <Link to="/" className="flex items-center gap-2">
             <img src={data.Icon} className="h-6 w-6" alt="Logo" />
-            <p className="text-2xl font-semibold">HireMate.</p>
+            <p className="text-2xl">HireMate.</p>
           </Link>
           <div
             onClick={() => setShowBurger(!showBurger)}
@@ -159,7 +161,7 @@ const Navbar = () => {
             showBurger ? "block" : "hidden"
           }`}
         >
-          <nav className="bg-white py-10 rounded-lg">
+          <nav className="bg-white py-10 rounded-lg h-screen overflow-clip absolute top-12  left-0 w-full">
             <ul className="flex flex-col items-center gap-6 text-xl ">
               <NavLink to="/hireMate-academy-code365" onClick={() => setShowBurger(false)}>
                 {text1}
@@ -178,6 +180,7 @@ const Navbar = () => {
               </NavLink>
             </ul>
           </nav>
+
         </div>
       </header>
     </div>

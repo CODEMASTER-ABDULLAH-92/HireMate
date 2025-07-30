@@ -1,14 +1,15 @@
 import React, { useRef } from "react";
 import Hero from "../Component/Hero";
 import HomeCard from "../Component/HomeCard";
-import Logos from "../Component/Logos"
-import { data } from "../assets/assets";
+// import Logos from "../Component/Logos";
+import { asset, data } from "../assets/assets";
 import Services from "../Component/Services";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import OurWorkingProcess from "../Component/OurWorkingProcess";
 import FooterHireMate from "../Component/FooterHireMate";
+import TestimonialHire from "../Component/HireMate/TestimonialHire";
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -28,15 +29,16 @@ const Home = () => {
     gsap.fromTo(
       card1Ref.current,
       { x: -300, opacity: 0 }, // Start position (off screen left, invisible)
-      { 
-        x: 0, opacity: 1, // End position (normal position, visible)
+      {
+        x: 0,
+        opacity: 1, // End position (normal position, visible)
         duration: 4,
         scrollTrigger: {
           trigger: card1Ref.current, // When this card enters view
           start: "top 80%", // Start animation when top of card is 80% from top of viewport
           end: "top 50%", // End animation when top of card is 50% from top
-          scrub: 1 // Smooth animation as you scroll
-        }
+          scrub: 1, // Smooth animation as you scroll
+        },
       }
     );
 
@@ -44,15 +46,16 @@ const Home = () => {
     gsap.fromTo(
       card2Ref.current,
       { x: 300, opacity: 0 },
-      { 
-        x: 0, opacity: 1,
+      {
+        x: 0,
+        opacity: 1,
         duration: 4,
         scrollTrigger: {
           trigger: card2Ref.current,
           start: "top 80%",
           end: "top 50%",
-          scrub: 1
-        }
+          scrub: 1,
+        },
       }
     );
 
@@ -60,72 +63,78 @@ const Home = () => {
     gsap.fromTo(
       card3Ref.current,
       { x: -300, opacity: 0 },
-      { 
-        x: 0, opacity: 1,
+      {
+        x: 0,
+        opacity: 1,
         duration: 4,
         scrollTrigger: {
           trigger: card3Ref.current,
           start: "top 80%",
           end: "top 50%",
-          scrub: 1
-        }
+          scrub: 1,
+        },
       }
     );
 
     gsap.fromTo(
       card4Ref.current,
       { x: 300, opacity: 0 },
-      { 
-        x: 0, opacity: 1,
+      {
+        x: 0,
+        opacity: 1,
         duration: 4,
         scrollTrigger: {
           trigger: card4Ref.current,
           start: "top 80%",
           end: "top 50%",
-          scrub: 1
-        }
+          scrub: 1,
+        },
       }
     );
 
     gsap.fromTo(
       card5Ref.current,
       { x: -300, opacity: 0 },
-      { 
-        x: 0, opacity: 1,
+      {
+        x: 0,
+        opacity: 1,
         duration: 4,
         scrollTrigger: {
           trigger: card5Ref.current,
           start: "top 80%",
           end: "top 50%",
           scrub: 1,
-        }
+        },
       }
     );
 
     gsap.fromTo(
       card6Ref.current,
       { x: 300, opacity: 0 },
-      { 
-        x: 0, opacity: 1,
+      {
+        x: 0,
+        opacity: 1,
         duration: 4,
         scrollTrigger: {
           trigger: card6Ref.current,
           start: "top 80%",
           end: "top 50%",
           scrub: 1,
-        }
+        },
       }
     );
   }, []);
 
+
+  
   return (
     <div className="min-h-[100vh]">
       <Hero />
-      <Logos/>
+      {/* <Logos /> */}
       <Services />
-      
+
       {/* Cards Container */}
-      <div className="grid grid-cols-1 pb-40 gap-10 sm:grid-cols-2 px-4 overflow-clip py-20">
+      <div className="grid grid-cols-1 pb-40 gap-10 sm:grid-cols-2  px-4 overflow-clip py-20">
         {/* Card 1 */}
         <div ref={card1Ref}>
           <HomeCard
@@ -210,10 +219,32 @@ const Home = () => {
           />
         </div>
       </div>
+      {/* Testimonial Section  */}
 
+      <div className="bg-[#191A23] relative rounded-[45px] flex min-h-[500px] flex-col py-20 w-[100%]">
+        <div className="flex gap-10 px-20 overflow-x-scroll bg-transparent min-h-[400px]  w-[100%]">
+          {Array(3)
+            .fill()
+            .map((_, index) => (
+              <div className="relative" key={index}>
+                <TestimonialHire />
+                <div className="text-[#B9FF66] mb-20 absolute left-[55px] top-[270px]">
+                  <h1>John Smith</h1>
+                  <p className="text-white">Marketing Director at XYZ Corp</p>
+                </div>
+              </div>
+            ))}
+        </div>
 
-      <OurWorkingProcess/>
-      <FooterHireMate/>
+        <div className="flex justify-center items-center gap-3 bg-ambe00">
+          <img src={data.testmonialIcon} alt="Testimonial Icon" />
+          <img src={data.testmonialIcon} alt="Testimonial Icon" />
+          <img src={data.testmonialIcon} alt="Testimonial Icon" />
+        </div>
+      </div>
+
+      <OurWorkingProcess />
+      <FooterHireMate />
     </div>
   );
 };
