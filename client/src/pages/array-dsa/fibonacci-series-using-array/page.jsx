@@ -1,6 +1,6 @@
 
 import React from 'react'
-import Code from '../../../component/Code'
+import Code from '../../../Component/Code'
 const page = () => {
   return (
     <div>

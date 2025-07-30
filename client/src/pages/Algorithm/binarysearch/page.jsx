@@ -1,5 +1,5 @@
 // import Code from '@/component/Code'
-import Code from "../../../component/Code"
+import Code from "../../../Component/Code"
 import React from 'react'
 
 const page = () => {
