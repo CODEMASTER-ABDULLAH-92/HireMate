@@ -3,27 +3,40 @@ import { FaGithub, FaLink, FaLinkedin, FaPlus, FaTrash, FaEdit } from "react-ico
 import { FiExternalLink } from "react-icons/fi";
 
 const ProjectsPortfolio = () => {
-  const [projects, setProjects] = useState([]);
+  const [projects, setProjects] = useState([
+    // Sample projects for demonstration
+    {
+      title: "E-commerce Website",
+      description: "A full-featured online store with cart functionality and payment processing.",
+      technologies: "React, Node.js, MongoDB, Stripe API",
+      liveLink: "https://example-ecommerce.com",
+      githubRepo: "https://github.com/user/ecommerce-site",
+      linkedinPost: "https://linkedin.com/posts/ecommerce-project"
+    },
+    {
+      title: "Task Management App",
+      description: "Productivity application for organizing daily tasks with drag-and-drop interface.",
+      technologies: "React, Firebase, Tailwind CSS",
+      liveLink: "https://taskmanager.example.com",
+      githubRepo: "https://github.com/user/task-manager"
+    }
+  ]);
+
   const [formData, setFormData] = useState({
     title: "",
     description: "",
     technologies: "",
     liveLink: "",
     githubRepo: "",
-    linkedinPost: "",
-    featuredImage: null,
-    previewImage: null
+    linkedinPost: ""
   });
+
   const [isEditing, setIsEditing] = useState(false);
   const [editIndex, setEditIndex] = useState(null);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-  };
-
-  const handleFileChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.files[0] });
   };
 
   const handleSubmit = (e) => {
@@ -48,9 +61,7 @@ const ProjectsPortfolio = () => {
       technologies: "",
       liveLink: "",
       githubRepo: "",
-      linkedinPost: "",
-      featuredImage: null,
-      previewImage: null
+      linkedinPost: ""
     });
   };
 
@@ -65,27 +76,27 @@ const ProjectsPortfolio = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 py-8 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-8 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-10">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-800">
-            My Development Projects
+        <div className="text-center mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-3">
+            My <span className="text-[#B9FF66]">Development</span> Projects
           </h1>
-          <p className="text-lg text-gray-600 mt-2">
-            Showcase your best work to potential employers and clients
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Showcase your best work to potential employers and clients with a clean, modern portfolio
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Project Form */}
-          <div className="bg-white rounded-xl shadow-md overflow-hidden lg:col-span-1">
-            <div className="bg-blue-600 px-6 py-4">
-              <h2 className="text-xl font-semibold text-white">
-                {isEditing ? "Edit Project" : "Add New Project"}
+          <div className="bg-white rounded-2xl shadow-lg overflow-hidden lg:col-span-1 border border-gray-200">
+            <div className="bg-[#B9FF66] px-6 py-4">
+              <h2 className="text-xl font-semibold text-gray-900">
+                {isEditing ? "✏️ Edit Project" : "➕ Add New Project"}
               </h2>
             </div>
-            <form onSubmit={handleSubmit} className="p-6 space-y-4">
+            <form onSubmit={handleSubmit} className="p-6 space-y-5">
               {/* Project Title */}
               <div className="space-y-2">
                 <label className="block text-gray-700 font-medium">
@@ -96,7 +107,7 @@ const ProjectsPortfolio = () => {
                   name="title"
                   value={formData.title}
                   onChange={handleInputChange}
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-300 focus:border-blue-500 outline-none transition"
+                  className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#B9FF66] focus:border-[#B9FF66] outline-none transition"
                   required
                 />
               </div>
@@ -111,7 +122,7 @@ const ProjectsPortfolio = () => {
                   value={formData.description}
                   onChange={handleInputChange}
                   rows="4"
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-300 focus:border-blue-500 outline-none transition"
+                  className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#B9FF66] focus:border-[#B9FF66] outline-none transition"
                   required
                 ></textarea>
               </div>
@@ -127,7 +138,7 @@ const ProjectsPortfolio = () => {
                   value={formData.technologies}
                   onChange={handleInputChange}
                   placeholder="React, Node.js, MongoDB, etc."
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-300 focus:border-blue-500 outline-none transition"
+                  className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#B9FF66] focus:border-[#B9FF66] outline-none transition"
                   required
                 />
               </div>
@@ -135,7 +146,7 @@ const ProjectsPortfolio = () => {
               {/* Live Link */}
               <div className="space-y-2">
                 <label className="block text-gray-700 font-medium flex items-center gap-2">
-                  <FaLink className="text-blue-500" />
+                  <FaLink className="text-[#B9FF66]" />
                   Live Demo URL
                 </label>
                 <input
@@ -144,7 +155,7 @@ const ProjectsPortfolio = () => {
                   value={formData.liveLink}
                   onChange={handleInputChange}
                   placeholder="https://your-project.com"
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-300 focus:border-blue-500 outline-none transition"
+                  className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#B9FF66] focus:border-[#B9FF66] outline-none transition"
                 />
               </div>
 
@@ -160,7 +171,7 @@ const ProjectsPortfolio = () => {
                   value={formData.githubRepo}
                   onChange={handleInputChange}
                   placeholder="https://github.com/your-username/project"
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-300 focus:border-blue-500 outline-none transition"
+                  className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#B9FF66] focus:border-[#B9FF66] outline-none transition"
                 />
               </div>
 
@@ -176,43 +187,14 @@ const ProjectsPortfolio = () => {
                   value={formData.linkedinPost}
                   onChange={handleInputChange}
                   placeholder="https://linkedin.com/posts/your-project"
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-300 focus:border-blue-500 outline-none transition"
-                />
-              </div>
-
-              {/* Featured Image */}
-              <div className="space-y-2">
-                <label className="block text-gray-700 font-medium">
-                  Featured Image
-                </label>
-                <input
-                  type="file"
-                  name="featuredImage"
-                  onChange={handleFileChange}
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-300 focus:border-blue-500 outline-none transition"
-                  accept="image/*"
-                />
-              </div>
-
-              {/* Preview Image */}
-              <div className="space-y-2">
-                <label className="block text-gray-700 font-medium">
-                  Preview Images (Multiple)
-                </label>
-                <input
-                  type="file"
-                  name="previewImage"
-                  onChange={handleFileChange}
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-300 focus:border-blue-500 outline-none transition"
-                  accept="image/*"
-                  multiple
+                  className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#B9FF66] focus:border-[#B9FF66] outline-none transition"
                 />
               </div>
 
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition flex items-center justify-center gap-2"
+                className="w-full bg-[#B9FF66] hover:bg-[#A5E55C] text-gray-900 font-medium py-3 px-4 rounded-xl transition flex items-center justify-center gap-2 shadow-md hover:shadow-lg"
               >
                 {isEditing ? (
                   <>
@@ -230,7 +212,7 @@ const ProjectsPortfolio = () => {
           {/* Projects List */}
           <div className="lg:col-span-2 space-y-6">
             {projects.length === 0 ? (
-              <div className="bg-white rounded-xl shadow-md p-8 text-center">
+              <div className="bg-white rounded-2xl shadow-lg p-8 text-center border border-gray-200">
                 <h3 className="text-xl font-medium text-gray-600">
                   No projects added yet
                 </h3>
@@ -240,13 +222,13 @@ const ProjectsPortfolio = () => {
               </div>
             ) : (
               projects.map((project, index) => (
-                <div key={index} className="bg-white rounded-xl shadow-md overflow-hidden">
+                <div key={index} className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-shadow">
                   {/* Project Header */}
-                  <div className="bg-gray-800 px-6 py-4">
+                  <div className="bg-gray-900 px-6 py-4">
                     <h3 className="text-xl font-semibold text-white">
                       {project.title}
                     </h3>
-                    <p className="text-gray-300">{project.technologies}</p>
+                    <p className="text-[#B9FF66]">{project.technologies}</p>
                   </div>
 
                   {/* Project Body */}
@@ -264,7 +246,7 @@ const ProjectsPortfolio = () => {
                           href={project.liveLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center gap-2 text-blue-600 hover:text-blue-800"
+                          className="flex items-center gap-2 text-blue-600 hover:text-blue-800 hover:underline"
                         >
                           <FiExternalLink /> Live Demo
                         </a>
@@ -274,7 +256,7 @@ const ProjectsPortfolio = () => {
                           href={project.githubRepo}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center gap-2 text-gray-800 hover:text-gray-600"
+                          className="flex items-center gap-2 text-gray-800 hover:text-gray-600 hover:underline"
                         >
                           <FaGithub /> GitHub
                         </a>
@@ -284,34 +266,24 @@ const ProjectsPortfolio = () => {
                           href={project.linkedinPost}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center gap-2 text-blue-700 hover:text-blue-900"
+                          className="flex items-center gap-2 text-blue-700 hover:text-blue-900 hover:underline"
                         >
                           <FaLinkedin /> LinkedIn Post
                         </a>
                       )}
                     </div>
 
-                    {/* Images Placeholder */}
-                    {project.featuredImage && (
-                      <div className="mb-4">
-                        <h4 className="font-medium text-gray-700 mb-2">Featured Image</h4>
-                        <div className="bg-gray-100 rounded-lg h-48 flex items-center justify-center text-gray-400">
-                          Image Preview
-                        </div>
-                      </div>
-                    )}
-
                     {/* Action Buttons */}
-                    <div className="flex gap-2">
+                    <div className="flex gap-3">
                       <button
                         onClick={() => handleEdit(index)}
-                        className="bg-blue-100 text-blue-700 hover:bg-blue-200 px-4 py-2 rounded-lg flex items-center gap-2"
+                        className="bg-[#B9FF66] hover:bg-[#A5E55C] text-gray-900 px-4 py-2 rounded-lg flex items-center gap-2 transition"
                       >
                         <FaEdit /> Edit
                       </button>
                       <button
                         onClick={() => handleDelete(index)}
-                        className="bg-red-100 text-red-700 hover:bg-red-200 px-4 py-2 rounded-lg flex items-center gap-2"
+                        className="bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded-lg flex items-center gap-2 transition"
                       >
                         <FaTrash /> Delete
                       </button>

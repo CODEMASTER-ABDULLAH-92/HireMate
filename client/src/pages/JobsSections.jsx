@@ -73,7 +73,7 @@ const JobsSections = () => {
           {/* Job Type */}
           <div ref={jobTypeRef}>
             <div className="flex justify-between items-center cursor-pointer" onClick={() => setHideJobType(!hideJobType)}>
-              <h1 className="font-bold text-xl">Job Type</h1>
+              <h1 className=" text-xl">Job Type</h1>
               {hideJobType ? <ChevronUp size={30} /> : <ChevronDown size={30} />}
             </div>
 
@@ -90,7 +90,7 @@ const JobsSections = () => {
           {/* Location */}
           <div ref={locationRef} className="py-4">
             <div className="flex justify-between items-center cursor-pointer" onClick={() => setHideLocation(!hideLocation)}>
-              <h1 className="font-bold text-xl">Location</h1>
+              <h1 className=" text-xl">Location</h1>
               {hideLocation ? <ChevronUp size={30} /> : <ChevronDown size={30} />}
             </div>
 
@@ -108,7 +108,7 @@ const JobsSections = () => {
           {/* Job Category */}
           <div ref={categoryRef} className="py-4">
             <div className="flex justify-between items-center cursor-pointer" onClick={() => setHideCategory(!hideCategory)}>
-              <h1 className="font-bold text-xl">Category</h1>
+              <h1 className=" text-xl">Category</h1>
               {hideCategory ? <ChevronUp size={30} /> : <ChevronDown size={30} />}
             </div>
 

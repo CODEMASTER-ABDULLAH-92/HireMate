@@ -1,7 +1,5 @@
-
 import React from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
-
 
 import Navbar from "./Component/Navbar";
 
@@ -80,7 +78,9 @@ import Address from "./GettingUserData/Address.jsx";
 import Educational from "./GettingUserData/Educational.jsx";
 import ProjectsPortfolio from "./GettingUserData/ProjectSection.jsx";
 import JsExercise from "./pages/JsExercise.jsx";
-
+import UserDashBoard from "./DashBoards/UserDashboard.jsx";
+import RecuriterDashBoard from "./DashBoards/RecuriterDashboard.jsx";
+import UserCompleteProfile from "./DashBoards/UserCompleteProfile.jsx";
 
 const App = () => {
   const { pathname } = useLocation();
@@ -91,8 +91,6 @@ const App = () => {
     "/signUp",
     "/otp",
     "/hireMate-academy-code365",
-
-    // JavaScript
     "/array-methods",
     "/data-types",
     "/Js-strings-methods",
@@ -101,8 +99,6 @@ const App = () => {
     "/mathJs",
     "/otpPassword",
     "/dateMethod",
-
-    // Algorithms
     "/binary",
     "/bubble",
     "/dutch",
@@ -110,8 +106,6 @@ const App = () => {
     "/linear",
     "/all",
     "/selection",
-
-    // Patterns
     "/AlphabetPyramidPattern",
     "/AlphabetStaircasePattern",
     "/BinaryNumberTrianglePattern",
@@ -132,14 +126,30 @@ const App = () => {
     "/squarePattern",
     "/symmetricAlphabetPyramid",
     "/primeNumber",
-    "/javaScript_exerise"
+    "/javaScript_exerise",
+  ];
+
+  const userProfileRoutes = [
+    "/personalData",
+    "/personalProject",
+    "/educational",
+    "/address",
   ];
 
   const hideLayout = hideLayoutRoutes.includes(pathname);
+  const isUserProfilePage = userProfileRoutes.includes(pathname);
 
   return (
-    <div className={`${hideLayout ? "custom-font" : "max-w-[90%] fontFamily mx-auto"} `}>
-      {!hideLayout && <Navbar />}
+    <div
+      className={`${
+        hideLayout
+          ? "custom-font"
+          : isUserProfilePage
+          ? "fontFamily"
+          : "max-w-[90%] fontFamily mx-auto"
+      }`}
+    >
+      {!hideLayout && !isUserProfilePage && <Navbar />}
 
       <Routes>
         {/* Home Routes */}
@@ -148,7 +158,7 @@ const App = () => {
         <Route path="/jobs" element={<JobsSections />} />
         <Route path="/details/:id" element={<JobDetails />} />
 
-        {/* Hire Dev  */}
+        {/* Hire Dev */}
         <Route path="/hire-dev" element={<HireDev />} />
 
         {/* Algorithm Routes */}
@@ -260,12 +270,19 @@ const App = () => {
         <Route path="/recuiter-signUp" element={<SignUp />} />
         <Route path="/recuiter-otp" element={<Otp />} />
 
-        <Route path="/personalInfo" element={<PersonalDetail />} />
-        <Route path="/address" element={<Address />} />
+        {/* Personal User Info */}
+        <Route path="/personalData" element={<PersonalDetail />} />
+        <Route path="/personalProject" element={<ProjectsPortfolio />} />
         <Route path="/educational" element={<Educational />} />
-        <Route path="/add-project" element={<ProjectsPortfolio />} />
+        <Route path="/address" element={<Address />} />
 
-        {/* 404 Route - Should be last */}
+        {/* Dashboards */}
+
+        <Route path="/userDashboard" element={<UserDashBoard />} />
+        <Route path="/recuiterDashboard" element={<RecuriterDashBoard />} />
+        <Route path="/user-profile" element={<UserCompleteProfile />} />
+
+        {/* 404 Route */}
         {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>
     </div>

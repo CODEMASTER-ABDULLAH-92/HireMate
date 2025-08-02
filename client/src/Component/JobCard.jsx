@@ -1,10 +1,27 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Dot } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { AppContext } from "../Context/ContextApi";
+import toast from "react-hot-toast";
 
 const JobCard = ({ jobName, location, description, jobStatus, jobType, salary, id }) => {
   const [isFilled, setIsFilled] = useState(false);
-  const token = true;
+  const { userProfile, token } = useContext(AppContext);
+  const navigate = useNavigate();
+
+  const checkUserStatus = () => {
+    if (!token) {
+      toast.error("Login First");
+      return navigate("/login");
+    }
+    if (!userProfile) {
+      toast.error("Complete Your Profile for Job Apply");
+      return navigate("/personalData");
+    }
+    // ✅ If user is authenticated and profile completed, navigate to apply page
+    toast.success("Thanks for Applying this Job");
+    // navigate(`/apply/${id}`);
+  };
 
   return (
     <div className="bg-amber-300 rounded-xl p-6 max-h-[350px] flex flex-col justify-between">
@@ -12,7 +29,7 @@ const JobCard = ({ jobName, location, description, jobStatus, jobType, salary, i
       <div>
         <div className="flex justify-between items-start mb-4">
           <div>
-            <h1 className="text-2xl  mb-2">{jobName}</h1>
+            <h1 className="text-2xl mb-2">{jobName}</h1>
             <ul className="flex flex-wrap items-center gap-2 text-sm text-gray-700">
               <li className="list-none">{jobStatus}</li>
               <li className="list-none flex items-center">
@@ -59,16 +76,17 @@ const JobCard = ({ jobName, location, description, jobStatus, jobType, salary, i
       <div className="flex justify-between gap-3">
         <Link
           to={`/details/${id}`}
-          className="w-1/2 text-center text-white bg-green-600 hover:bg-green-700 rounded-md py-2 text-sm  transition"
+          className="w-1/2 text-center text-white bg-green-600 hover:bg-green-700 rounded-md py-2 text-sm transition"
         >
           View Details
         </Link>
-        <Link
-          to={token ? "#" : "/login"}
-          className="w-1/2 text-center text-white bg-green-600 hover:bg-green-700 rounded-md py-2 text-sm  transition"
+
+        <button
+          onClick={checkUserStatus}
+          className="w-1/2 text-center text-white bg-green-600 hover:bg-green-700 rounded-md py-2 text-sm transition"
         >
-          Apply Now
-        </Link>
+          {token && userProfile ? "Easy Apply" : "Apply Now"}
+        </button>
       </div>
     </div>
   );
