@@ -1,5 +1,6 @@
 import React from "react";
 import CardDsa from "../../Component/CardDsa";
+import Heading from "../../Component/Code365/Heading";
 
 const HeadingCard = ({ title, subheading, description }) => {
   return (
@@ -135,11 +136,7 @@ const JavaScriptConcepts = () => {
             />
           ))}
         </div>
-
-        <p className="lg:text-6xl md:text-4xl text-2xl pt-4 font-black bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 animate-text-shine px-4 md:px-6 lg:px-8 py-2 md:py-3 lg:py-4 my-4 md:my-6 lg:my-8">
-          JS Quirks & Miscellaneous Topics:-
-        </p>
-
+<Heading Heading={"JS Quirks & Miscellaneous Topics:-"}/>
         <div className="flex flex-wrap justify-center gap-6">
           <HeadingCard
             title="JS Quirks"

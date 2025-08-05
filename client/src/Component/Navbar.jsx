@@ -8,9 +8,7 @@ import gsap from "gsap";
 const Navbar = () => {
   const [showBurger, setShowBurger] = useState(false);
   const containerRef = useRef();
-  const underlineRef1 = useRef();
-  const underlineRef2 = useRef();
-  const underlineRef3 = useRef();
+
   const text1 = "Jobs";
   const text2 = "Hire Dev";
   const text3 = "Academy";
@@ -61,64 +59,40 @@ const Navbar = () => {
           {/* Navigation Links */}
           <nav>
             <ul className="flex gap-3 text-xl " ref={containerRef}>
-              <li
-                className="animate_nav relative cursor-pointer"
-                onMouseEnter={() => handleMouseEnter({ ref: underlineRef1, length: text1.length })}
-                onMouseLeave={() => handleMouseLeave(underlineRef1)}
-              >
+              <li className="animate_nav group relative cursor-pointer">
                 <NavLink to="/jobs">{text1}</NavLink>
-                <div
-                  ref={underlineRef1}
-                  className="absolute left-0 -bottom-1 h-[3px] bg-black opacity-0"
-                  style={{ width: 0 }}
-                ></div>
+                <div className="absolute left-0 w-0 group-hover:w-6 bg-black h-[3px] -bottom-1 transition-all duration-500 origin-left"></div>
               </li>
-              <li
-                className="animate_nav relative cursor-pointer"
-                onMouseEnter={() => handleMouseEnter({ ref: underlineRef2, length: text2.length })}
-                onMouseLeave={() => handleMouseLeave(underlineRef2)}
-              >
+              <li className="animate_nav group relative cursor-pointer">
                 <NavLink to="/hire-dev">{text2}</NavLink>
-                <div
-                  ref={underlineRef2}
-                  className="absolute left-0 -bottom-1 h-[3px] bg-black opacity-0"
-                  style={{ width: 0 }}
-                ></div>
+                <div className="absolute group-hover:bg-black group-hover:w-10 w-0 transition-all duration-500 left-0 -bottom-1 h-[3px] bg-black "></div>
               </li>
-              <li
-                className="animate_nav relative cursor-pointer"
-                onMouseEnter={() => handleMouseEnter({ ref: underlineRef3, length: text3.length })}
-                onMouseLeave={() => handleMouseLeave(underlineRef3)}
-              >
+              <li className="animate_nav group relative cursor-pointer">
                 <div className="absolute -top-6 animate-bounce bg-[#B9FF66] px-2 py-1 rounded-md text-sm right-0">
                   New!
                 </div>
                 <NavLink to="/hireMate-academy-code365">{text3}</NavLink>
-                <div
-                  ref={underlineRef3}
-                  className="absolute left-0 -bottom-1 h-[3px] bg-black opacity-0"
-                  style={{ width: 0 }}
-                ></div>
+                <div className="absolute group-hover:bg-black group-hover:w-14 transition-all duration-500 w-0 left-0 -bottom-1 h-[3px] bg-black"></div>
               </li>
             </ul>
           </nav>
 
           {/* Login Dropdown */}
           <div className="relative group">
-            <button className="px-5 py-3 border border-gray-700 rounded-lg flex items-center gap-2 font-semibold">
+            <button className="px-5 py-3 border border-gray-700 rounded-lg flex items-center gap-2 cursor-pointer">
               Login <ChevronDown size={20} />
             </button>
             <div className="absolute top-14 w-[150px] bg-white shadow-md rounded-md hidden group-hover:block z-10">
               <ul className="py-2">
                 <NavLink
                   to="/login"
-                  className="block px-5 py-2 hover:bg-gray-100"
+                  className="block cursor-pointer px-5 py-2 hover:bg-gray-100"
                 >
                   User Login
                 </NavLink>
                 <NavLink
                   to="/admin-login"
-                  className="block px-5 py-2 hover:bg-gray-100"
+                  className="block cursor-pointer px-5 py-2 hover:bg-gray-100"
                 >
                   Admin Login
                 </NavLink>
@@ -163,7 +137,10 @@ const Navbar = () => {
         >
           <nav className="bg-white py-10 rounded-lg h-screen overflow-clip absolute top-12  left-0 w-full">
             <ul className="flex flex-col items-center gap-6 text-xl ">
-              <NavLink to="/hireMate-academy-code365" onClick={() => setShowBurger(false)}>
+              <NavLink
+                to="/hireMate-academy-code365"
+                onClick={() => setShowBurger(false)}
+              >
                 {text1}
               </NavLink>
               <NavLink to="/hire-dev" onClick={() => setShowBurger(false)}>
@@ -180,7 +157,6 @@ const Navbar = () => {
               </NavLink>
             </ul>
           </nav>
-
         </div>
       </header>
     </div>

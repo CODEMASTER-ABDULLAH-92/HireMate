@@ -221,19 +221,20 @@ const Home = () => {
       </div>
       {/* Testimonial Section  */}
 
-      <div className="bg-[#191A23] relative rounded-[45px] flex min-h-[500px] flex-col py-20 w-[100%]">
+      <div className="bg-[#191A23] mb-10 relative rounded-[45px] flex min-h-[500px] flex-col py-20 w-[100%]">
         <div className="flex gap-10 px-20 overflow-x-scroll bg-transparent min-h-[400px]  w-[100%]">
-          {Array(3)
-            .fill()
-            .map((_, index) => (
-              <div className="relative" key={index}>
+
+              <div className="relative">
                 <TestimonialHire />
                 <div className="text-[#B9FF66] mb-20 absolute left-[55px] top-[270px]">
                   <h1>John Smith</h1>
                   <p className="text-white">Marketing Director at XYZ Corp</p>
                 </div>
               </div>
-            ))}
+
+
+              
+
         </div>
 
         <div className="flex justify-center items-center gap-3 bg-ambe00">
